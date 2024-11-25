@@ -79,3 +79,6 @@ table.place(x=300, y=30)
 Button(win, text="Add", width=8, command=add_click).place(x=80, y=260)
 
 win.mainloop()
+
+
+print("test_project")

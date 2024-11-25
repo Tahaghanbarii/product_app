@@ -6,3 +6,6 @@ def price_validator(price):
 
 def name_validator(name):
     return bool(re.match(r"[a-zA-Z]{2-30}", name))
+
+
+print("test_project")
