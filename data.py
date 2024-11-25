@@ -2,8 +2,9 @@ from tkinter import *
 from tkinter.messagebox import showinfo
 from tkinter.ttk import Treeview
 import tkinter.messagebox as msg  # alias
+from tokenize import String
 
-from validation import name_validator, price_validator
+from validation import *
 
 id_list = []
 
@@ -11,13 +12,14 @@ id_list = []
 def reset_form():
     id.set(0)
     name.set("")
+    brand.set("")
     price.set(0)
     quantity.set(0)
 
 
 def add_click():
-    if price.get() > 0 and quantity.get() > 0:
-        product = (id.get(), price.get(), quantity.get(), name.get(),price.get()* quantity.get())
+    if price.get() > 0 and quantity.get() > 0 and id.get():
+        product = (id.get(), price.get(), quantity.get(), brand.get(), name.get(), price.get() * quantity.get())
         table.insert("", END, values=product)
         total.set(total.get() + quantity.get() * price.get())
         reset_form()
@@ -29,7 +31,7 @@ def add_click():
 
 
 win = Tk()
-win.geometry("800x320")
+win.geometry("1000x420")
 win.title("Calculator")
 
 # id
@@ -52,20 +54,31 @@ Label(win, text="price").place(x=20, y=170)
 price = IntVar()
 Entry(win, textvariable=price).place(x=80, y=170)
 
-# Report
-Label(win, text="Total").place(x=20, y=220)
+# brand
+Label(win, text="brand").place(x=20, y=220)
+brand = StringVar()
+Entry(win, textvariable=brand).place(x=80, y=220)
+
+# total
+Label(win, text="Total").place(x=20, y=270)
 total = IntVar()
-Entry(win, textvariable=total, state="readonly").place(x=80, y=220)
+Entry(win, textvariable=total, state="readonly").place(x=80, y=270)
+
+# is_availabel
+Label(win, text="is_availabel").place(x=20, y=320)
+is_availabel = StringVar()
+Entry(win, textvariable=is_availabel, state="readonly").place(x=80, y=320)
 
 # Table
-table = Treeview(win, columns=[1, 2, 3, 4, 5], height=12, show="headings")
+table = Treeview(win, columns=[1, 2, 3, 4, 5, 6], height=12, show="headings")
 
 # Title
 table.heading(1, text="id")
 table.heading(2, text="name")
 table.heading(3, text="price")
 table.heading(4, text="quantity")
-table.heading(5, text="Total")
+table.heading(5, text="brand")
+table.heading(6, text="total")
 
 # Width
 table.column(1, width=60)
@@ -73,12 +86,12 @@ table.column(2, width=100)
 table.column(3, width=100)
 table.column(4, width=100)
 table.column(5, width=100)
+table.column(6, width=100)
 table.place(x=300, y=30)
 
 # Save
-Button(win, text="Add", width=8, command=add_click).place(x=80, y=260)
+Button(win, text="Add", width=8, command=add_click).place(x=80, y=370)
 
 win.mainloop()
-
 
 print("test_project")
