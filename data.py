@@ -40,22 +40,22 @@ id = IntVar()
 Entry(win, textvariable=id).place(x=80, y=20)
 
 # name
-Label(win, text="name").place(x=20, y=70)
+Label(win, text="Name").place(x=20, y=70)
 name = StringVar()
 Entry(win, textvariable=name).place(x=80, y=70)
 
 # quantity
-Label(win, text="quantity").place(x=20, y=120)
+Label(win, text="Quantity").place(x=20, y=120)
 quantity = IntVar()
 Entry(win, textvariable=quantity).place(x=80, y=120)
 
 # price
-Label(win, text="price").place(x=20, y=170)
+Label(win, text="Price").place(x=20, y=170)
 price = IntVar()
 Entry(win, textvariable=price).place(x=80, y=170)
 
 # brand
-Label(win, text="brand").place(x=20, y=220)
+Label(win, text="Brand").place(x=20, y=220)
 brand = StringVar()
 Entry(win, textvariable=brand).place(x=80, y=220)
 
@@ -65,9 +65,9 @@ total = IntVar()
 Entry(win, textvariable=total, state="readonly").place(x=80, y=270)
 
 # is_availabel
-Label(win, text="is_availabel").place(x=20, y=320)
-is_availabel = StringVar()
-Entry(win, textvariable=is_availabel, state="readonly").place(x=80, y=320)
+Label(win, text="Available").place(x=20, y=320)
+is_available = StringVar()
+Entry(win, textvariable=is_available, state="readonly").place(x=80, y=320)
 
 # Table
 table = Treeview(win, columns=[1, 2, 3, 4, 5, 6], height=12, show="headings")
