@@ -17,6 +17,10 @@ def reset_form():
     price.set(0)
     quantity.set(0)
 
+def delete_click():
+    product = (id.get(), price.get(), quantity.get(), brand.get(), name.get(), price.get() , quantity.get)
+    id_list.remove(product)
+    reset_form()
 
 def add_click():
     if price.get() > 0 and quantity.get() > 0 and id.get():
@@ -73,10 +77,9 @@ Label(win, text="Total").place(x=20, y=270)
 total = IntVar()
 Entry(win, textvariable=total, state="readonly").place(x=80, y=270)
 
-# is_availabel
-Label(win, text="Available").place(x=20, y=320)
-is_available = StringVar()
-Entry(win, textvariable=is_available, state="readonly").place(x=80, y=320)
+# is_available
+is_available= BooleanVar()
+Checkbutton(win, text="is_available", variable=is_available).place(x=20,y=320)
 
 # Table
 table = Treeview(win, columns=[1, 2, 3, 4, 5, 6], height=12, show="headings")
@@ -100,7 +103,7 @@ table.place(x=300, y=30)
 
 # Save
 Button(win, text="Add", width=8, command=add_click).place(x=80, y=370)
-
+Button(win, text="Delete", command=delete_click).place(x=150, y=370)
 win.mainloop()
 
 print("test_project")
