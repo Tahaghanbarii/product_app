@@ -1,4 +1,5 @@
 from tkinter import *
+from PIL import Image, ImageTk
 from tkinter.messagebox import showinfo
 from tkinter.ttk import Treeview
 import tkinter.messagebox as msg  # alias
@@ -33,6 +34,14 @@ def add_click():
 win = Tk()
 win.geometry("1000x420")
 win.title("Calculator")
+
+#photo
+img = Image.open("product.jpg")
+img = img.resize((100,100))
+
+img = ImageTk.PhotoImage(img)
+Label(win,text="matn",  image=img).place(x=550, y=300)
+
 
 # id
 Label(win, text="id").place(x=20, y=20)
