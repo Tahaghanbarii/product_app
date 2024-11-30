@@ -18,9 +18,23 @@ def reset_form():
     quantity.set(0)
 
 def delete_click():
-    product = (id.get(), price.get(), quantity.get(), brand.get(), name.get(), price.get() , quantity.get)
+    product = (id.get(), price.get(), quantity.get(), brand.get(), name.get(), price.get() , quantity.get())
     id_list.remove(product)
     reset_form()
+
+def save_click():
+    product = (id.get(), price.get(), quantity.get(), brand.get(), name.get(), price.get() , quantity.get())
+    id_list.append(product)
+    reset_form()
+
+
+def refresh_table():
+    # Clear Table
+    for item in table.get_children():
+        table.delete(item)
+
+    for account in id_list:
+        table.insert("", END, values=account, tags="talabkar" if account[2] >= 0 else "bedehkar")
 
 def add_click():
     if price.get() > 0 and quantity.get() > 0 and id.get():
