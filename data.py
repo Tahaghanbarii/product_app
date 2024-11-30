@@ -22,10 +22,12 @@ def delete_click():
     id_list.remove(product)
     reset_form()
 
+
 def save_click():
     product = (id.get(), price.get(), quantity.get(), brand.get(), name.get(), price.get() , quantity.get())
-    id_list.append(product)
+    product.append(product)
     reset_form()
+
 
 
 def refresh_table():
